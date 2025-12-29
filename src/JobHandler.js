@@ -6,6 +6,12 @@ class JobHandler {
   constructor() {
     this.#bree = new Bree({
       root: false,
+      logger: console,
+      // Surface messages posted from workers via parentPort.postMessage
+      // workerMessageHandler: (event, name) => {
+      //   const msg = typeof event === 'string' ? event : JSON.stringify(event);
+      //   console.log(`Worker message from "${name}": ${msg}`);
+      // },
       jobs: [
       ]
     });   
@@ -15,9 +21,7 @@ class JobHandler {
     const jobParams = {
       name: job.getName(),
       path: path.join(__dirname,'Jobs',job.getJobFileName()),
-      worker: {
-        workerData: job.getPayload()
-      }
+      workerData: job.getPayload()
     }
 
     if(job.getInterval())

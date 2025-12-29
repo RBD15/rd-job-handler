@@ -1,9 +1,10 @@
 {
   "name": "rd-job-handler",
   "version": "0.1.0",
-  "description": "A jobhandler package base on bree to simplify cron job implementation",
+  "description": "A jobHandler package base on bree to simplify cron job implementation",
   "main": "index.js",
   "scripts": {
+    "dev": "node index.js",
     "test": "jest",
     "test:show-hour": "jest tests/unit/Jobs/showCurrentHour.test.js",
     "example:show-hour": "node examples/showCurrentHourRunner.js"
@@ -14,8 +15,8 @@
     "bree",
     "package"
   ],
-  "author": "rdStudio",
-  "license": "ISC",
+  "author": "rdStudio15",
+  "license": "MIT",
   "dependencies": {
     "bree": "^9.2.6"
   },

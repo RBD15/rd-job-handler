@@ -2,7 +2,7 @@ const path = require('path');
 const JobHandler = require('../src/JobHandler');
 const JobVO = require('../src/Jobs/JobVO');
 
-(async () => {
+const showCurrent = async () => {
   const jobHandler = new JobHandler();
 
   const job = new JobVO(
@@ -13,7 +13,7 @@ const JobVO = require('../src/Jobs/JobVO');
   );
 
   await jobHandler.add(job);
-  console.log('Stating showCurrentHour job...');
+  console.log('Starting showCurrentHour job...');
   await jobHandler.run();
 
   setTimeout(async () => {
@@ -21,4 +21,6 @@ const JobVO = require('../src/Jobs/JobVO');
     await jobHandler.stop();
     process.exit(0);
   }, 50000);
-})();
+}
+
+module.exports = { showCurrent };
